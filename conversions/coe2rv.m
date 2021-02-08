@@ -1,4 +1,7 @@
 function [r, v] = coe2rv(mu, a, e, Omega, inc, omega, theta)
+% Author: Laura Train
+% Date of the last update Feb 8 2021
+
 % coe2rv converts from Classical Orbit Elements to the components of the state
 % vector x = [r,v] (position and velocity) in ECI coordinates
 %

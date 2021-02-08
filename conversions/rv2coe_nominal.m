@@ -1,4 +1,7 @@
 function [a, e, Omega, inc, omega, theta] = rv2coe_nominal(mu, r, v)
+% Author: Laura Train
+% Date of the last update Feb 8 2021
+
 % rv2coe_nominal converts from the state vector x = [r,v] (position and velocity)
 % in ECI coords to Classical Orbit Elements. It only covers nominal cases,
 % meaning that in case of equatorial or circular orbits, the COEs

@@ -1,4 +1,7 @@
 function [a, e, Omega, inc, u] = rv2coe_circular(mu, r, v)
+% Author: Laura Train
+% Date of the last update Feb 8 2021
+
 % rv2coe_circular converts from the state vector x = [r,v] (position and velocity)
 % in ECI coords to Classical Orbit Elements. It only covers circular orbits.
 %

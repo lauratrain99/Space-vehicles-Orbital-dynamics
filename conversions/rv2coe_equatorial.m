@@ -1,4 +1,7 @@
 function [a, e, inc, omega_hat, theta] = rv2coe_equatorial(mu, r, v)
+% Author: Laura Train
+% Date of the last update Feb 8 2021
+%
 % rv2coe_equatorial converts from the state vector x = [r,v] (position and velocity)
 % in ECI coords to Classical Orbit Elements. It only covers equatorial orbits.
 %
@@ -14,6 +17,7 @@ function [a, e, inc, omega_hat, theta] = rv2coe_equatorial(mu, r, v)
 %    omega_hat, argument of the periapsis [º]
 %        theta, true anomaly [º]
 %
+
 %% 
         % Position magnitude [km]
         r_norm = norm(r);
