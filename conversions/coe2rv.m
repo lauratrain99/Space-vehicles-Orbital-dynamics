@@ -1,6 +1,6 @@
-function [r, v] = coe2rv(mu, a,e,Omega,inc,omega,theta)
+function [r, v] = coe2rv(mu, a, e, Omega, inc, omega, theta)
 % coe2rv converts from Classical Orbit Elements to the components of the state
-% vector x = [r,v] (position and velocity)
+% vector x = [r,v] (position and velocity) in ECI coordinates
 %
 % INPUT
 %           mu, gravitational parameter [km^3/s]
@@ -12,8 +12,8 @@ function [r, v] = coe2rv(mu, a,e,Omega,inc,omega,theta)
 %        theta, true anomaly [rad]
 %
 % OUTPUT 
-%            r, 3x1 position vector [km]
-%            v, 3x1 velocity vector [km/s]
+%            r, 3x1 position vector in ECI coords [km]
+%            v, 3x1 velocity vector in ECI coords [km/s]
 %
 %%
     % B0 - Equatorial ECI vector bases. All the vectors are given

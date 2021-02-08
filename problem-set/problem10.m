@@ -1,3 +1,6 @@
+% Author: Laura Train
+% Date of the last update Feb 8 2021
+
 clear;clc;
 
 addpath ../conversions
