@@ -83,7 +83,7 @@ function [coe] = rv2coe(mu, state)
         n_norm = norm(n);
         
         % B1 vectors
-        i1 = n;
+        i1 = n/n_norm;
         k1 = k0;
         j1 = cross(k1,i1);
         
@@ -100,21 +100,21 @@ function [coe] = rv2coe(mu, state)
         if e < 1e-3 && n_norm > 1e-3
             % circular orbit
             disp('The orbit is circular')
-            coe = angleCOE_cir(coe, i0, k0, n, h, ur);
+            coe = angleCOE_cir(coe, i0, k0, i1, k3, ur);
             
         elseif e > 1e-3 && n_norm < 1e-3
             % equatorial orbit
             disp('The orbit is equatorial')
-            coe = angleCOE_equa(coe, i0, k0, i3, h, ur);
+            coe = angleCOE_equa(coe, i0, k0, i3, k3, ur);
             
         elseif e < 1e-3 && n_norm < 1e-3
             % Circular and equatorial orbit
             disp('The orbit is circular and equatorial')
-            coe = angleCOE_cirEqua(coe, i0, k0, h, ur);
+            coe = angleCOE_cirEqua(coe, i0, k0, k3, ur);
         else
             % nominal case
             disp('The orbit is nominal')
-            coe = angleCOE_nom(coe, i0, k0, i3, n, h, ur);
+            coe = angleCOE_nom(coe, i0, k0, i3, i1, k3, ur);
         end
         
 end

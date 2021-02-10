@@ -1,4 +1,4 @@
-function [coe] = angleCOE_equa(coe, i0, k0, i3, h, ur)
+function [coe] = angleCOE_equa(coe, i0, k0, i3, k3, ur)
 % Author: Laura Train
 % Date of the last update Feb 8 2021
 
@@ -12,7 +12,7 @@ function [coe] = angleCOE_equa(coe, i0, k0, i3, h, ur)
 %           i0, 3x1 unit i vector of the B0 in ECI coords
 %           k0, 3x1 velocity vector in ECI coords [km/s]
 %           i3, 3x1 unit i vector of the B3 in ECI coords
-%            h, 3x1 angular momentum vector in ECI coords [km^2/s]
+%           k3, 3x1 unit k vector of the B3 in ECI coords [km^2/s]
 %           ur, 3x1 unit vector in the direction of the position vector r
 % OUTPUT 
 %          coe, data structure containing the fields
@@ -35,7 +35,7 @@ function [coe] = angleCOE_equa(coe, i0, k0, i3, h, ur)
         
         % Inclination [º]
           % Only defined for 1st and 2nd quadrant
-          coe.inc = acos(dot(k0,h));
+          coe.inc = acos(dot(k0,k3));
         
         
         % True anomaly [º]
