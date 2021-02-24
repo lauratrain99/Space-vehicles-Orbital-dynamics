@@ -40,11 +40,11 @@ function [E, it, error, deltaE] = Me2E(Me, e, tol)
         
         % Compute the rest of iterations
         while (error(it) > tol) || (deltaE(it-1) > tol)
-            
-            E(it+1) = E(it) - f(E(it))/f_dot(E(it));
-            error(it+1) = abs(f(E(it+1)));
-            deltaE(it) = abs(E(it+1) - E(it))/abs(E(it+1));
             it = it + 1;
+            E(it) = E(it-1) - f(E(it-1))/f_dot(E(it-1));
+            error(it) = abs(f(E(it)));
+            deltaE(it-1) = abs(E(it) - E(it-1))/abs(E(it));
+            
         end
         
         % Convert back to degrees
