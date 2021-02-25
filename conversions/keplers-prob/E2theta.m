@@ -12,7 +12,7 @@ function [theta] = E2theta(E,e)
 %   theta, true anomaly [rad]
 %
 %%
-    theta = acos((cos(E) - e)/(1 - e*cos(E)));
+    theta = acos((cos(E) - e)./(1 - e*cos(E)));
     
     if mod(E,2*pi)> pi
         theta = 2*pi - theta;

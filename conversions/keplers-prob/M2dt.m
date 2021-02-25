@@ -12,8 +12,12 @@ function dt = M2dt(M,mu,a)
 % OUTPUT:
 %      dt, interval of time [s]
 %
-%%
-    n = sqrt(mu/a^3);
+%%  
+    if a > 0
+        n = sqrt(mu/a^3);
+    else
+        n = sqrt(-mu/a^3);
+    end
     
     dt = M/n;
     
