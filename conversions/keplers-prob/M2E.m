@@ -14,6 +14,9 @@ function [E, dE_E, it] = M2E(M,e,tol,maxiter)
 %      it, number of iterations in newton's method
 
 %%
+    
+    addpath ../../solve-non-linear
+    
     f = @(E) E - e*sin(E) - M;
     df = @(E) 1 - e*cos(E);
     
