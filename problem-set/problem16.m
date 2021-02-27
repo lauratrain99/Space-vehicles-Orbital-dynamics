@@ -16,6 +16,7 @@ theta2 = deg2rad(46.5);         % rad
 mu = 1266.87e+5;                % km^3/s^2
 
 %% solve
+
 a = p/(1 - e^2);                % km
 H1 = theta2H(theta1,e);
 H2 = theta2H(theta2,e);
@@ -29,3 +30,4 @@ dt2 = M2dt(M2, mu, a);
 deltat = dt2 + dt1;
 
 fprintf("The total time is %.2f h \n\n", deltat/3600)
+
