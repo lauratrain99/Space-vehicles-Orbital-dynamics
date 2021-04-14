@@ -1,4 +1,4 @@
-function [dt,n] = M2dt(M,mu,a)
+function [dt] = M2dt(M,mu,a)
 % Author: Laura Train
 % Date of the last update Feb 24 2021
 

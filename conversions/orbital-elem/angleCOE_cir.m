@@ -1,4 +1,4 @@
-function [coe] = angleCOE_cir(coe, i0, k0, n, k3, ur)
+function [coe] = angleCOE_cir(coe, i0, k0, i1, k3, ur)
 % Author: Laura Train
 % Date of the last update Feb 10 2021
 
