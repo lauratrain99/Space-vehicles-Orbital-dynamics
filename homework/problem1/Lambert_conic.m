@@ -37,7 +37,7 @@ function [e, a, deltaTheta] = Lambert_conic(eT_star, r1, r2, k)
     tm = dot (cross(r1,r2) / norm(cross(r1,r2)),k);
     
     % compute deltaTheta
-    deltaTheta = acos((dot(r1,r2)) / (norm(r1)*norm(r2)));
+    deltaTheta = acos((dot(r1,r2)) / (norm(dot(r1,r2))));
     
     % if long arc    
     if tm < 0

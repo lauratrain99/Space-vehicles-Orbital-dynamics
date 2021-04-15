@@ -1,4 +1,4 @@
-function [deltaV1, deltaV2, deltaV] = HT(mu, rA, rC)
+function [vtp, vta, deltaV] = HT(mu, rA, rC)
 % Author: Laura Train
 % Date of the last update Feb 25 2021
 

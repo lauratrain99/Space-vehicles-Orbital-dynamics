@@ -43,7 +43,8 @@ function [dT, theta1, theta2, a, e] = Lambert_time(r1, r2, eT_star, k, mu)
     
     
     % determine the transfer type
-    tm = dot (cross(r1,r2) / norm(cross(r1,r2)),k);
+%     tm = dot (cross(r1,r2) / norm(cross(r1,r2)),k);
+    tm = 1;
     
     % determine time to get a full orbit
     n = sqrt(mu/a^3);
