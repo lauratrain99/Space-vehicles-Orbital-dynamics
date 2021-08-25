@@ -22,18 +22,17 @@ function [r, v] = coe2rv(mu, a, e, Omega, inc, omega, theta)
     j0 = [0;1;0];
     k0 = [0;0;1];
     
-    
-    % B1 
+    % B1 - First rotation
     i1 = cos(Omega)*i0 + sin(Omega)*j0;
     j1 = -sin(Omega)*i0 + cos(Omega)*j0;
     k1 = k0;
     
-    % B2
+    % B2 - Second rotation
     i2 = i1;
     j2 = cos(inc)*j1 + sin(inc)*k1;
     k2 = -sin(inc)*j1 + cos(inc)*k1;
    
-    % B3
+    % B3 - Third rotation
     i3 = cos(omega)*i2 + sin(omega)*j2;
     j3 = -sin(omega)*i2 + cos(omega)*j2;
     k3 = k2;
@@ -43,7 +42,7 @@ function [r, v] = coe2rv(mu, a, e, Omega, inc, omega, theta)
     er = cos(theta)*i3 + sin(theta)*j3;
     etheta = -sin(theta)*i3 + cos(theta)*j3;
     
-    % Orbit parameter [km]
+    % Semi-latus rectum [km]
     p = a*(1 - e^2);
     
     % Angular momentum [km^2/s]
@@ -64,8 +63,5 @@ function [r, v] = coe2rv(mu, a, e, Omega, inc, omega, theta)
     % Velocity vector [km/s]
     v = rdot * er + rthetadot * etheta;
     
-    % Check angular velocity vector and k3 vectors are parallel
-%     h = cross(r,v);
-%     disp(cross(h,k3));
     
 end

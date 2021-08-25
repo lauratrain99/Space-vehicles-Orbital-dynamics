@@ -5,7 +5,7 @@ clear;clc;
 
 addpath ../conversions
 addpath ../conversions/keplers-prob
-
+addpath ../solve-non-linear
 %% Data of the problem
 
 a = 20000;                 % km

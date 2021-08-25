@@ -8,7 +8,7 @@ function [DV] = cost(theta1,theta2,tf,tolerance,maxiter)
 %       maxiter, maximum number of iterations
 %
 % OUTPUTS: 
-%            DV, delta velocity [m/s]
+%            DV, delta velocity [km/s]
 %
 %%  
 

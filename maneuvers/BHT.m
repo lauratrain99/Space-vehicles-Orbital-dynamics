@@ -20,12 +20,12 @@ function [deltaV1, deltaV2, deltaV3, deltaV] = BHT(mu, rA, rB, rC)
     deltaV1 = vpA - vA;
     
     vaB = sqrt(2*mu/rB - 2*mu/(rA + rB));
-    vaC = sqrt(2*mu/rB - 2*mu/(rA + rC));
+    vaC = sqrt(2*mu/rB - 2*mu/(rC + rB));
     deltaV2 = vaC - vaB;
     
     vpC = sqrt(2*mu/rC - 2*mu/(rB + rC));
     vC = sqrt(mu/rC);
-    deltaV3 = vC - vpC;
+    deltaV3 = abs(vC - vpC);
     
     deltaV = deltaV2 + deltaV1 + deltaV3;
     

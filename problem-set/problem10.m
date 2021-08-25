@@ -3,7 +3,7 @@
 
 clear;clc;
 
-addpath ../conversions
+addpath ../conversions/orbital-elem
 
 %% Problem data
 a = 20000;                            % km
@@ -28,7 +28,7 @@ w01 = [0;0;earth_rate];
 r1 = r0;
 
 % Coriolis theorem
-v1 = v0 + cross(w01, r1);
+v1 = v0 - cross(w01, r1);
 
 fprintf('The velocity vector in ECEF coordinates is [%.2f, %.2f, %.2f] km/s \n\n', v1(1), v1(2), v1(3))
 

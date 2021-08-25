@@ -1,7 +1,4 @@
 function M = E2M(E,e)
-% Author: Laura Train
-% Date of the last update Feb 24 2021
-
 % E2M obtains the mean anomaly from the eccentric anomaly
 %
 % INPUT:

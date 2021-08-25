@@ -1,7 +1,4 @@
 function [coe] = rv2coe(mu, state)
-% Author: Laura Train
-% Date of the last update Feb 10 2021
-
 % rv2coe converts from the state vector x = [r,v] (position and velocity)
 % in ECI coords to Classical Orbit Elements. It includes nominal cases,
 % equatorial orbits and circular orbits
@@ -18,24 +15,29 @@ function [coe] = rv2coe(mu, state)
 %          Depending on the nature of the orbit it will contain different
 %          fields
 %                                    nominal case
-%            a, semi-major axis [km]
-%            e, eccentricity
-%        Omega, right ascension of the descending node [º]
-%          inc, inclination [º]
-%        omega, argument of the periapsis [º]
-%        theta, true anomaly [º]
+%            a: semi-major axis [km]
+%            e: eccentricity
+%        Omega: right ascension of the descending node [º]
+%          inc: inclination [º]
+%        omega: argument of the periapsis [º]
+%        theta: true anomaly [º]
 %                                    circular case
-%            a, semi-major axis [km]
-%            e, eccentricity
-%        Omega, right ascension of the descending node [º]
-%          inc, inclination [º]
-%            u, argument of latitude [º]
+%            a: semi-major axis [km]
+%            e: eccentricity
+%        Omega: right ascension of the descending node [º]
+%          inc: inclination [º]
+%            u: argument of latitude [º]
 %                                    equatorial case
-%            a, semi-major axis [km]
-%            e, eccentricity
-%          inc, inclination [º]
-%    omega_hat, argument of the periapsis [º]
-%        theta, true anomaly [º]
+%            a: semi-major axis [km]
+%            e: eccentricity
+%          inc: inclination [º]
+%    omega_hat: argument of the periapsis [º]
+%        theta: true anomaly [º]
+%                                    circular and equatorial case
+%            a: semi-major axis [km]
+%            e: eccentricity
+%       lambda: true longitude of the body [rad]
+%          inc: inclination [rad]
 %
 %% 
         % Position magnitude [km]
@@ -64,9 +66,6 @@ function [coe] = rv2coe(mu, state)
         e_vec = (1/mu) *(cross(v,h) - mu*r/r_norm);
         e = sqrt(1 - p/a);
         
-        % Check both scalars coincide
-        disp(norm(e_vec));
-        disp(e);
         
         % B0 vectors
         i0 = [1;0;0];
@@ -99,21 +98,17 @@ function [coe] = rv2coe(mu, state)
         % Compute the angular coe depending on the nature of the orbit
         if e < 1e-3 && n_norm > 1e-3
             % circular orbit
-            disp('The orbit is circular')
             coe = angleCOE_cir(coe, i0, k0, i1, k3, ur);
             
         elseif e > 1e-3 && n_norm < 1e-3
             % equatorial orbit
-            disp('The orbit is equatorial')
             coe = angleCOE_equa(coe, i0, k0, i3, k3, ur);
             
         elseif e < 1e-3 && n_norm < 1e-3
             % Circular and equatorial orbit
-            disp('The orbit is circular and equatorial')
             coe = angleCOE_cirEqua(coe, i0, k0, k3, ur);
         else
             % nominal case
-            disp('The orbit is nominal')
             coe = angleCOE_nom(coe, i0, k0, i3, i1, k3, ur);
         end
         

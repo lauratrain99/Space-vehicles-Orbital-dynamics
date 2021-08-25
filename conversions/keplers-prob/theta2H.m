@@ -14,9 +14,9 @@ function [H] = theta2H(theta,e)
 %%
     H = acosh((e + cos(theta))/(1 + e*cos(theta)));
     
-    if mod(theta, 2*pi) > pi
-        H = 2*pi - H;
-    end
+%     if mod(theta, 2*pi) > pi
+%         H = 2*pi - H;
+%     end
     
 end
 

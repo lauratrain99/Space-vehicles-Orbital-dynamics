@@ -1,7 +1,4 @@
 function [dt] = M2dt(M,mu,a)
-% Author: Laura Train
-% Date of the last update Feb 24 2021
-
 % M2dt obtains the time interval from the mean anomaly
 %
 % INPUT:
@@ -13,12 +10,10 @@ function [dt] = M2dt(M,mu,a)
 %      dt, interval of time [s]
 %
 %%  
-    if a > 0
-        n = sqrt(mu/a^3);
-    else
-        n = sqrt(-mu/a^3);
-    end
+    % compute the mean angular rate
+    n = sqrt(mu/a^3);
     
+    % compute deltatime
     dt = M/n;
     
 end

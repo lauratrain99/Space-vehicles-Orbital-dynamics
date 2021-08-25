@@ -3,7 +3,7 @@
 
 clear;clc;
 
-addpath ../conversions
+addpath ../conversions/orbital-elem
 
 %% Problem data
 
